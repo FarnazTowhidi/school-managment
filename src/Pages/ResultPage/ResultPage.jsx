@@ -1,7 +1,11 @@
 import React from 'react'
+import ResultForm from '../../Component/ResultForm/ResultForm'
 
 export default function ResultPage() {
   return (
-    <div>ResultPage</div>
+    <>
+      <h1>Result Page</h1>
+      <ResultForm />
+    </>
   )
 }

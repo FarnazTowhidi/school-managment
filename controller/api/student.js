@@ -12,7 +12,7 @@ async function createStudent(req, res) {
   }
 
 async function listStudent(req, res) {
-  try {
+  try {   
     const students = await Student.find({})
     res.status(200).json(students)
   } catch (err) {

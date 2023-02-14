@@ -58,6 +58,7 @@ export default function StudentForm({setStudentAddFlag}) {
                     value={formData.datebirth}
                     onChange={handleChange}
                 />
+                
                 <Form.Label>{updateMessage}</Form.Label><br />
                 <Button variant="primary" type="submit">
                     Submit

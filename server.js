@@ -13,6 +13,8 @@ app.use(cors()); // anyone can communicate with our api
 app.use(logger('dev'));
 app.use(express.json());
 app.use("/api/students", require("./routes/api/students"));
+app.use("/api/courses", require("./routes/api/courses"));
+app.use("/api/results", require("./routes/api/results"));
 
 
 app.get('/*', function(req, res) {
