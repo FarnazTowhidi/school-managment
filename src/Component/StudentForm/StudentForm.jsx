@@ -11,21 +11,35 @@ export default function StudentForm({setStudentAddFlag}) {
         lastname: "",
         datebirth: ""
     })
+    const [formValid, setFormValid] = useState("false")
+
     const [updateMessage, SetUpdateMessage] = useState ("")
 
     async function handleSubmit (e) {
-       e.preventDefault(); 
-       await axios.post ("http://localhost:3001/api/students", formData)
-       setFormData ({
-        firstname:"",
-        familyname: "",
-        datebirth: ""
-    })
-        SetUpdateMessage ("New Student has been added")
-        setStudentAddFlag("true")
-       .catch(error => {
-        console.log (error.response.data)
+        e.preventDefault(); 
+       
+           console.log (formValiation())
+        if (formValiation()== "true") {
+            console.log ("sfafaffaad")
+            await axios.post ("http://localhost:3001/api/students", formData)
+            setFormData ({
+            firstname:"",
+            familyname: "",
+            datebirth: ""
+            })
+            SetUpdateMessage ("New Student has been added")
+            setStudentAddFlag("true")
+            .catch(error => {
+                console.log (error.response.data)
     });
+        }
+       
+    }
+
+    function formValiation () {
+        if (formData.firstname.trim().length==0) 
+            return ("false")
+            
     }
 
     async function handleChange (e) {
@@ -49,6 +63,7 @@ export default function StudentForm({setStudentAddFlag}) {
                     required={true}
                     value={formData.familyname}
                     onChange={handleChange}
+                    
                 />
                 <Form.Control 
                     type="text" 
