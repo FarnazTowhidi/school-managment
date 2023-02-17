@@ -1,12 +1,13 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import StudentForm from '../../Component/StudentForm/StudentForm'
-import { Container, Row, Col, Form} from 'react-bootstrap';
+import { Container, Row, Col, Form, Button} from 'react-bootstrap';
 import axios from "axios"
 
 export default function StudentPage() {
   const [students, setStudents] = useState();
   const [studentAddFlag, setStudentAddFlag] = useState ("false")
+  const [studentChanged, setStudentChanged] = useState ("false")
 
   //Get Students 
   useEffect(() => {
@@ -20,7 +21,14 @@ export default function StudentPage() {
       }
     }  
     getStudent()    
-  },[studentAddFlag])
+  },[studentChanged])
+
+
+  async function deleteStudent (idx) {
+    await axios.delete (`/api/students/${idx}`)
+    setStudentChanged("true")
+
+  }
 
 
   return (
@@ -39,7 +47,8 @@ export default function StudentPage() {
           <Row key={idx} style={{backgroundColor:"#dfe2e8", borderBottom:"1px solid #c9ccd1"}}>
             <Col>{student?.firstname}</Col>  
             <Col>{student?.familyname}</Col>     
-            <Col>{student?.datebirth}</Col>            
+            <Col>{student?.datebirth}</Col>  
+            <Col><Button onClick={()=>deleteStudent(student?._id)}>Delete</Button></Col>          
           </Row>        
         ))  
       }

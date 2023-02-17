@@ -17,10 +17,7 @@ export default function StudentForm({setStudentAddFlag}) {
 
     async function handleSubmit (e) {
         e.preventDefault(); 
-       
-           console.log (formValiation())
-        if (formValiation()== "true") {
-            console.log ("sfafaffaad")
+            // if (formValiation()== "true") {
             await axios.post ("http://localhost:3001/api/students", formData)
             setFormData ({
             firstname:"",
@@ -32,14 +29,15 @@ export default function StudentForm({setStudentAddFlag}) {
             .catch(error => {
                 console.log (error.response.data)
     });
-        }
+        // }
        
     }
 
     function formValiation () {
-        if (formData.firstname.trim().length==0) 
+        if (formData.firstname.trim().length==0) {
+            SetUpdateMessage("Please fill all forms")
             return ("false")
-            
+        }    
     }
 
     async function handleChange (e) {
