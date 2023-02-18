@@ -14,7 +14,8 @@ export default function NavBar() {
           <Nav className="me-auto flex-column">
             <Nav.Link href="/home">Home</Nav.Link>
             <Nav.Link href="/student">Student</Nav.Link>    
-            <Nav.Link href="/Courses">Courses</Nav.Link>    
+            
+            <Nav.Link href="/instructors">Instructors</Nav.Link>    
             <Nav.Link href="/results">Results</Nav.Link>         
           </Nav>
         </Navbar.Collapse>

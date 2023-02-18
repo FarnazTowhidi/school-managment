@@ -15,6 +15,7 @@ app.use(express.json());
 app.use("/api/students", require("./routes/api/students"));
 app.use("/api/courses", require("./routes/api/courses"));
 app.use("/api/results", require("./routes/api/results"));
+app.use("/api/instructors", require("./routes/api/instructors"));
 
 
 app.get('/*', function(req, res) {

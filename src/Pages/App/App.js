@@ -9,6 +9,8 @@ import HomePage from '../HomePage/HomePage';
 import StudentPage from '../StudentPage/StudentPage';
 import CoursesPage from '../CoursesPage/CoursesPage';
 import ResultPage from '../ResultPage/ResultPage';
+import InstructorPage from '../InstructorPage/InstructorPage';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -33,6 +35,9 @@ function App() {
               </Routes>
               <Routes>
                 <Route path="/results" element={<ResultPage />} />
+              </Routes>
+              <Routes>
+                <Route path="/instructors" element={<InstructorPage /> } />
               </Routes>
           </Col>
         </Row>
