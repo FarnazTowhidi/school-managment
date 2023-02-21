@@ -1,11 +1,9 @@
 
-const Instructors = require ("../../models/result")
+const Instructors = require ("../../models/instructor")
 
 async function getAllInstructors(req,res) {
-  console.log ("test")
   try {
-
-    const data =  await Instructors.getAll()
+    let data =  await Instructors.getAll()
     res.status(200).json(data)
   }
   catch (err)
