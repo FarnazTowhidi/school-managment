@@ -10,8 +10,18 @@ import StudentPage from '../StudentPage/StudentPage';
 import CoursesPage from '../CoursesPage/CoursesPage';
 import ResultPage from '../ResultPage/ResultPage';
 import InstructorPage from '../InstructorPage/InstructorPage';
+import { FaCog, FaUserTie, FaColumns, FaThList } from "react-icons/fa"; 
+import {
+  Menu,
+  MenuItem,
+  Sidebar,
+  ProSidebar,
+  SidebarHeader,
+  SubMenu
+} from "react-pro-sidebar";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 
 
 function App() {
@@ -19,7 +29,23 @@ function App() {
     <main className="App">
       <Container >
         <Row>
-          <Col xl={2}><NavBar /></Col>
+         
+          <Col xl={2}>
+            <Menu iconShape="square">
+                <MenuItem icon={<FaThList />}> Dashboard</MenuItem>
+                <MenuItem icon={<FaUserTie />} href="/employees">
+                  Instructor
+                </MenuItem>
+                <SubMenu title="Classes" icon={<FaThList />}>
+                  <MenuItem>Software Immersive</MenuItem>
+                  
+                </SubMenu>
+                <MenuItem icon={<FaCog />}>Students</MenuItem>
+            </Menu>
+
+
+
+          </Col>
           <Col xl={10}>
             <Routes>
             <Route path="/" element={<HomePage />} />
@@ -41,9 +67,7 @@ function App() {
               </Routes>
           </Col>
         </Row>
-      </Container>
-      
-      
+      </Container>     
     </main>
   );
 }

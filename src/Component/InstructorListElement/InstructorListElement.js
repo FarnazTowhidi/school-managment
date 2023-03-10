@@ -3,7 +3,7 @@ import "./InstructorListElement.css"
 
 export default function InstructorListElement({name, imagesrc, description}) {
   return (
-   <div class="wrapper" >
+   <div className="wrapper" >
     
     <div>{name}</div>     
     <img style={{width:"100px"}} src={imagesrc} />
